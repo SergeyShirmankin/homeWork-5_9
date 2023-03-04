@@ -7,7 +7,8 @@ int main()
 		Snack *bounty = new Snack("Bounty");//Создаем в Куче указатель на обьек ткласса
 		Snack *snickers = new Snack("Snickers");
 		SnackSlot *slot = new SnackSlot(10);//*количество батончиков, которые помещаются в слот*
-		
+	    slot->addSnack(bounty); //Добавляем батончик в слот
+//		slot->addSnack(snickers);
 		delete bounty; //Освобождаем память
 		delete snickers;
 		delete slot;
@@ -21,10 +22,14 @@ int main()
 //	SnackSlot *slot = new SnackSlot(10/*количество батончиков, которые помещаются в слот*/);
 //	slot->addSnack(bounty); //Добавляем батончик в слот
 //	slot->addSnack(snickers);
+//  slot->subSnack(snickers); вычесть баточик из слота
+//  slot->subSnack(bouty); вычесть баточик из слота
 //	VendingMachine* machine = new VendingMachine(slotCount /*Количество слотов для снеков*/);
-//	machine->addSlot(slot); // Помещаем слот обратно в аппарат
-
-//	cout << machine->getEmptySlotsCount(); // Должно выводить количество пустых слотов для снеков
+//	machine->addSlot(slot); // Добавить слот слот в аппарат
+//	cout << machine->getEmptySlotsCount(); // Должно выводить количество пустых слотов
+// загрузить машину 
+// Купить товар
+//Если товар закончился то выдать сообщение, что нет товара
 //delete machine;
 //	delete slot;
 //	delete snickers;
