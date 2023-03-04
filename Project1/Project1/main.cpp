@@ -6,9 +6,11 @@ int main()
 	{
 		Snack *bounty = new Snack("Bounty");//Ñîçäàåì â Êó÷å óêàçàòåëü íà îáüåê òêëàññà
 		Snack *snickers = new Snack("Snickers");
+		SnackSlot *slot = new SnackSlot(10);//*êîëè÷åñòâî áàòîí÷èêîâ, êîòîğûå ïîìåùàşòñÿ â ñëîò*
 		
 		delete bounty; //Îñâîáîæäàåì ïàìÿòü
 		delete snickers;
+		delete slot;
 	}
 	std::cin >> a;
 	return 0;
