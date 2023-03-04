@@ -1,8 +1,15 @@
 #include <iostream>
+#include "Vin.h"
 int main()
 {
 	int a;
-	std::cout << "Hello" << std::endl;
+	{
+		Snack *bounty = new Snack("Bounty");//Создаем в Куче указатель на обьек ткласса
+		Snack *snickers = new Snack("Snickers");
+		
+		delete bounty; //Освобождаем память
+		delete snickers;
+	}
 	std::cin >> a;
 	return 0;
 }
