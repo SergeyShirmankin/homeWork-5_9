@@ -46,19 +46,12 @@ SnackSlot::SnackSlot(int maxProduct)
 	curentSnack = 0;
 	this->maxProductModule = maxProduct;
 	 pointSnack = new Snack*[maxProductModule];//Создаем массив  из 10 обьекто снека
-	for (int i = 0; i < maxProductModule; i++)
-	{
-		pointSnack[i] = new Snack("Emty");//Создание пустых Снекнов
-	}
 	std::cout << "This is constructor SnackSlot of object, adress =   "<<this << std::endl;
 }
 SnackSlot::~SnackSlot()
 {
 	std::cout << "This is destructor SnackSlot of object, adress = "<<this<<std::endl;
-	for (int i = 0; i <maxProductModule; i++)
-	{
-		delete pointSnack[i];
-	}
+		delete pointSnack[curentSnack-1];
 	delete[] pointSnack;
 }
 
@@ -67,8 +60,12 @@ void SnackSlot::addSnack(Snack* object)
 
 	if (this->curentSnack < this->maxProductModule)
 	{
-		 
-		pointSnack[curentSnack]= object;
+		pointSnack[curentSnack] = new Snack();
+		pointSnack[curentSnack]->operator=(object);//Запускаем переопределенную операцию присваивания
 		++curentSnack;
 	}
+}
+void Snack::operator = ( Snack * other)
+{
+	std::cout << "Redefining an assignment operatorя Snack " <<this<< std::endl;
 }

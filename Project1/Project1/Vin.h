@@ -8,6 +8,7 @@ public:
 	Snack(char *snackName, int snackPower,int snackPrice);//Еонструктор по именм,энергетике, цене
 	Snack(const Snack& other);//конструктор копирования
 	~Snack();//Деструкто;
+	void operator = ( Snack * other);
 private:
 	char * nameModule;
 	int countPower;//количество колорий
@@ -21,6 +22,7 @@ public:
 	~SnackSlot();//Деструктор
 	//slot->addSnack(bounty)
 	void addSnack(Snack* object);
+	void operator = (Snack * other);
 	//при выдаче снека отнимаем количество снеков из общего количества 
 private:
 	int curentSnack;// количество снеков, которые остались в лотке.
