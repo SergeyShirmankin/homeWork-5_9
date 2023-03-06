@@ -1,23 +1,18 @@
 #include <iostream>
 #include "Vin.h"
-//int testPointFunc(int a, int b)
-//{
-//	return a + b;
-//}
-
 int main()
 {
 	int a;
-	//int(*ptrtestPointFunc)(int,int);
-	//ptrtestPointFunc = testPointFunc;
 	{
 		Snack *bounty = new Snack("Bounty",5,10);//Создаем в Куче указатель на обьек ткласса
 		Snack *snickers = new Snack("Snickers",10,20);
 		SnackSlot *slot = new SnackSlot(10);//*количество батончиков, которые помещаются в слот*
-	    
-		slot->addSnack(bounty); //Добавляем батончик 1 в слот
-		slot->addSnack(bounty); //Добавляем батончик 2 в слот
-//		slot->addSnack(snickers);
+		for (int i = 0; i < slot->getMaxProductModule(); i++) {//заполняем батончиками первый	 слот
+			slot->addSnack(bounty); //Добавляем батончик 1 в слот
+			slot->showSnack();//Отображаем данные по 1 слоту
+		}
+		slot->addSnack(snickers);
+		slot->showSnack();
 		delete bounty; //Освобождаем память
 		delete snickers;
 		delete slot;

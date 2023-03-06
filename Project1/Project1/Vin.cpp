@@ -32,14 +32,7 @@ Snack::Snack(char *snackName, int snackPower, int snackPrice)//Конструктор Snack
 	std::cout << "nameModule = " << nameModule << std::endl;
 	std::cout << "This is constructor Snack of object, adress =  " << this << std::endl;
 };
-Snack::Snack(char* (*pointGetNameModule)(), int(*pointGetCountPower)(),int(*pointGetPrice)())//Конструктор c указателями на функцию
-{
-	//pointGetNameModule = this->getNameModule;// инициализация указателей ев функцию
-	//pointGetCountPower = this->getcountPower;
-	//pointGetPrice = this->getPrice;
-	//std::cout << "nameModule = " << nameModule << std::endl;
-	std::cout << "This is constructor Snack of object, adress =  " << this << std::endl;
-};
+
 Snack::Snack(const Snack& other)//конструктор копирования
 {
 	std::cout << "Call the copy constructor " << std::endl;
@@ -53,7 +46,7 @@ SnackSlot::SnackSlot(int maxProduct)//Конструктор SnackSlot
 {
 	curentSnack = 0;
 	this->maxProductModule = maxProduct;
-	 pointSnack = new Snack*[maxProductModule];//Создаем массив  из 10 обьекто снека
+	pointSnack = new Snack*[maxProductModule];//Создаем массив  из 10 обьекто снека
 	std::cout << "This is constructor SnackSlot of object, adress =   "<<this << std::endl;
 }
 SnackSlot::~SnackSlot()//Деструктор SnackSlot
@@ -68,9 +61,9 @@ void SnackSlot::addSnack(Snack* object)//Функция добавления присваивания
 
 	if (this->curentSnack < this->maxProductModule)
 	{
-	//	pointSnack[curentSnack] = new Snack(object->pointGetNameModule, object->pointGetCountPower, object->pointGetPrice);//
 		pointSnack[curentSnack] = new Snack();
 		pointSnack[curentSnack]->operator=(object);//Запускаем переопределенную операцию присваивания
+		//std::cout << "pointSnack [" << curentSnack << "]  = " << std::endl;
 		++curentSnack;
 	}
 }
@@ -92,7 +85,27 @@ int Snack::getPrice()//Гетер поля price
 {
 	return this->price;
 }
-int Snack::testPointFunc(int a, int b)//Функция для тестирования указателя на функцию; 
+Snack** SnackSlot:: getPointSnack()//Забираем указатель на массивы;
 {
-	return a + b;
+	return this->pointSnack;
+}
+int SnackSlot::getCurentSnack()
+{
+	return curentSnack;
+}
+int SnackSlot::getMaxProductModule()
+{
+	return maxProductModule;
+}
+void SnackSlot::showSnack()
+{
+	for (int i = 0; i < this->curentSnack; ++i)
+	{
+		std::cout << "pointSnack [" << i << "]  = " << this->pointSnack[i]<< std::endl;
+		std::cout << "pointSnack [" << i << "] getcountPower   = " << this->pointSnack[i]->getcountPower() << std::endl;
+		std::cout << "pointSnack [" << i << "] getNameModule   = " << this->pointSnack[i]->getNameModule() << std::endl;
+		std::cout << "pointSnack [" << i << "] getcountPower   = " << this->pointSnack[i]->getcountPower() << std::endl;
+		std::cout << "pointSnack [" << i << "] getPrice   = " << this->pointSnack[i]->getPrice() << std::endl;
+	}
+
 }
