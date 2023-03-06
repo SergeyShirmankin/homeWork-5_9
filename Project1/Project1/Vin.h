@@ -34,3 +34,15 @@ private:
 	Snack** pointSnack;//Указатель на массив снеков
 	int maxProductModule;
 };
+class VendingMachine
+{
+public:
+	VendingMachine(int countSlot);//Конструктор вендинг машинф
+	void addSlot(SnackSlot slot); // Добавить слот слот в аппарат
+	void getEmptySlotsCount(); // Должно выводить количество пустых слотов
+private:
+	int  emptySlotsCount;//Количесиво пустых слотов
+	int  currentSlot;//Текущий слот
+	SnackSlot** pointSlotSnack;//Указатель на массив  слотов снеков
+	int maxProductModule;
+};

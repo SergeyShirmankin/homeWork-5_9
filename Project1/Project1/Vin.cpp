@@ -109,3 +109,18 @@ void SnackSlot::showSnack()
 	}
 
 }
+VendingMachine::VendingMachine(int maxCountSlot)
+{
+	this->maxProductModule = maxCountSlot;
+	pointSlotSnack = new SnackSlot*[maxCountSlot];//Создаем массив  из 2 обьекто слотов снека
+	std::cout << "This is constructor SnackSlot of object, adress =   " << this << std::endl;
+}
+
+void VendingMachine::addSlot(SnackSlot slot)// Добавить слот слот в аппарат
+{
+	std::cout << "function addSlot " <<std::endl;
+}
+void VendingMachine::getEmptySlotsCount()// Должно выводить количество пустых слотов
+{
+	std::cout << "function getEmptySlotsCoun " << std::endl;
+}
