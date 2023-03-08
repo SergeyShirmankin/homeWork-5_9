@@ -20,6 +20,7 @@ private:
 
 class SnackSlot
 {
+	//friend void showSlot();//Дружественная функция;
 public:
 	SnackSlot(int maxProduct);//Заполняем слот снеками
 	~SnackSlot();//Деструктор
@@ -27,8 +28,8 @@ public:
 	Snack** getPointSnack();//Забираем указатель на массив
 	int getCurentSnack();//Гетеры
 	int getMaxProductModule();
-	void showSnack();//Выводим на экран снеки
-	//при выдаче снека отнимаем количество снеков из общего количества 
+	void operator = (SnackSlot * other);//переопределяем оператор присваивания
+	void showSnack();//Выводим на экран снеки 
 private:
 	int curentSnack;// количество снеков, которые остались в лотке.
 	Snack** pointSnack;//Указатель на массив снеков
@@ -36,10 +37,15 @@ private:
 };
 class VendingMachine
 {
+   friend void showSlot(VendingMachine& value);//Выводим на экран слоты через дружескую функцию
 public:
+	VendingMachine();//
 	VendingMachine(int countSlot);//Конструктор вендинг машинф
-	void addSlot(SnackSlot slot); // Добавить слот слот в аппарат
-	void getEmptySlotsCount(); // Должно выводить количество пустых слотов
+	~VendingMachine();//Деструктор 
+	void addSlot(SnackSlot *slot); // Добавить слот слот в аппарат
+	int getEmptySlotsCount(); // Должно выводить количество пустых слотов
+	int getCurrentSlot();
+	int getMaxProductModule();
 private:
 	int  emptySlotsCount;//Количесиво пустых слотов
 	int  currentSlot;//Текущий слот
