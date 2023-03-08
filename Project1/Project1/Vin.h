@@ -49,6 +49,6 @@ public:
 private:
 	int  emptySlotsCount;//Количесиво пустых слотов
 	int  currentSlot;//Текущий слот
-	SnackSlot** pointSlotSnack;//Указатель на массив  слотов снеков
+	SnackSlot** pointSlotSnack;//Указатель на массив  слотов 
 	int maxProductModule;
 };

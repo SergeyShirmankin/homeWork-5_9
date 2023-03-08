@@ -11,10 +11,12 @@ int main()
 		machine->addSlot(slot); // Добавить слот слот в аппарат для сникерс
 		machine->addSlot(slot); // Добавить слот слот в аппарат  для баунти
 		showSlot(*machine);//разыменование адресса *machine!!!!!!!!!!!
-		//	slot->addSnack(bounty); //Добавляем батончик 1 в слот для баунти
-		//	slot->showSnack();//Отображаем данные по 1 слоту		
-		//slot->addSnack(snickers);
-		//slot->showSnack(); ////Добавляем батончик 1 в слот для сникерс
+		slot->addSnack(bounty); //Добавляем батончик 1 в слот для баунти
+		slot->showSnack();//Отображаем данные по 1 слоту		
+		slot->addSnack(snickers);
+		slot->showSnack(); ////Добавляем батончик 1 в слот для сникерс
+		slot->addSnack(snickers);
+		slot->showSnack(); ////Добавляем батончик 1 в слот для сникерс
 		delete bounty; //Освобождаем память
 		delete snickers;
     	delete machine;
